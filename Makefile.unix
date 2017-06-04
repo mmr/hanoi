@@ -1,0 +1,25 @@
+#-#-#-#-#-#-#-#-#-#-#-#-#-#
+# $Id$
+# <mmr@b1n.org>
+#
+
+# Prog
+PROG=	hanoi
+SRCS=	hanoi.c
+OBJS=	hanoi.o
+
+# Apps
+CC=		cc
+
+# Flags
+CFLAGS=	-I/usr/X11R6/include -I/usr/local/include
+LDFLAGS=-L/usr/X11R6/lib -L/usr/local/lib -lm -lGL -lGLU -lglut -lX11 -lXmu -lXi
+#LDFLAGS=-L/usr/X11R6/lib -L/usr/local/lib -lm -lGL -lGLU -lglut -lX11 -lXmu -lXi -pg
+
+all: $(PROG)
+
+$(SRCS):
+	$(GET) $@
+
+clean:
+	-rm -f *.o *.core $(PROG)
